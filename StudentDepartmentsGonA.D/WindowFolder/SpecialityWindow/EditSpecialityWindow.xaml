@@ -1,0 +1,106 @@
+﻿<Window x:Class="StudentDepartmentsGonA.D.WindowFolder.EmployeeFolder.AdditionalWIndows.SpecialityWindow.EditSpecialityWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentDepartmentsGonA.D.WindowFolder.EmployeeFolder.AdditionalWIndows.SpecialityWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="{x:Null}"
+        WindowStartupLocation="CenterScreen"
+        Height="350" Width="500"
+        Icon="/StudentDepartmentsGonA.D;component/ResourceFolder/ImageFolder/Logo.png" 
+        KeyDown="Window_KeyDown">
+
+    <Border x:Name="MainB" CornerRadius="15" Background="White"
+           MouseDown="MainB_MouseDown"
+            BorderBrush="Black"
+            BorderThickness="0.6">
+
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="32"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="143"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="37"/>
+                    <ColumnDefinition Width="37"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Background="{DynamicResource BorderColorMain}" Grid.ColumnSpan="4" CornerRadius="14,14,0,0"/>
+
+                <Label Content="Редактирование специальности"
+                       Style="{DynamicResource LabelNameWin}"
+                       FontSize="20" Grid.ColumnSpan="2"/>
+
+                <Border x:Name="CloseB" Style="{DynamicResource BorderExitButton}"
+                MouseEnter="Borders_MouseEnter"          
+                       MouseDown="CloseB_MouseDown"
+                       MouseUp="CloseB_MouseUp" Grid.Column="3" Height="Auto" Width="Auto">
+                    <Label Name="CloseLB" Foreground="White"/>
+                </Border>
+
+            </Grid>
+
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="162"/>
+                    <ColumnDefinition Width="127*"/>
+                    <ColumnDefinition Width="209*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition Height="70"/>
+                </Grid.RowDefinitions>
+
+
+
+                <Button x:Name="BackBT" Grid.Row="3" materialDesign:ButtonAssist.CornerRadius="15" Click="BackBT_Click" Height="Auto" Margin="20,10"  >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/StudentDepartmentsGonA.D;component/ResourceFolder/ImageFolder/Arrow.png" Height="31" Width="31"/>
+                        <TextBlock Text="Назад" Style="{DynamicResource ButtonText}"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="EditSpecialityBT"
+                        Grid.Row="3" materialDesign:ButtonAssist.CornerRadius="15"
+                        IsEnabled="False"
+                        Grid.Column="2" Click="EditSpecialityBT_Click"  Margin="10,10,20,10" Height="Auto"  >
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="/StudentDepartmentsGonA.D;component/ResourceFolder/ImageFolder/Cross.png" Height="30" Width="30"/>
+                        <TextBlock Text="Редактировать" Style="{DynamicResource ButtonText}" />
+                    </StackPanel>
+                </Button>
+
+                <TextBox x:Name="SpecialityCodeTB" Text="{Binding SpecialityCode}"
+                         materialDesign:HintAssist.Hint="Код специальности" 
+                         BorderBrush="{DynamicResource BorderAccentMain}"
+                         Grid.ColumnSpan="3"  TextChanged="SpecialityCodeTB_TextChanged" MaxLength="8" />
+
+                <TextBox x:Name="NameSpecialityTB" Text="{Binding NameSpeciality}"
+                         materialDesign:HintAssist.Hint="Название специальности*" BorderBrush="{DynamicResource BorderAccentMain}"
+                    Grid.ColumnSpan="3"  Grid.Row="1" TextChanged="NameSpecialityTB_TextChanged" Margin="20,16" Height="Auto" 
+                         />
+
+                <TextBox x:Name="TermOFTrainingTB" Text="{Binding TermOFTraining}"
+                         materialDesign:HintAssist.Hint="Cрок обучения*" BorderBrush="{DynamicResource BorderAccentMain}"
+                    Grid.ColumnSpan="3"   Grid.Row="2" TextChanged="TermOFTrainingTB_TextChanged" Margin="20,16" Height="Auto" 
+                         />
+                <Button x:Name="DeleteBT" Background="{DynamicResource BorderAccentAdditional}"
+                        Grid.Row="3" Content="Удалить" materialDesign:ButtonAssist.CornerRadius="15"  Height="Auto" Margin="27,10,0,10"  Grid.Column="1" Click="DeleteBT_Click"  >
+
+                </Button>
+
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

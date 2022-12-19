@@ -1,0 +1,86 @@
+﻿<Window x:Class="StudentDepartmentsGonA.D.WindowFolder.AuthorizationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentDepartmentsGonA.D.WindowFolder"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="{x:Null}"
+        WindowStartupLocation="CenterScreen"
+        Height="450" Width="350"
+        MinHeight="450" MinWidth="350"
+        MaxHeight="450" MaxWidth="350"
+        Icon="/StudentDepartmentsGonA.D;component/ResourceFolder/ImageFolder/Logo.png" 
+        KeyDown="Window_KeyDown">
+
+    <Border x:Name="MainB" CornerRadius="15" Background="White"
+           MouseDown="MainB_MouseDown"
+            BorderBrush="Black"
+            BorderThickness="0.6">
+
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="32"/>
+                <RowDefinition Height="418"/>
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="37"/>
+                    <ColumnDefinition Width="37"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Авторизация" Style="{DynamicResource LabelNameWin}"
+                       Foreground="Black" />
+
+                <Border x:Name="CloseB" Style="{DynamicResource BorderExitButton}"
+                MouseEnter="Borders_MouseEnter"          
+                       MouseDown="CloseB_MouseDown"
+                       MouseUp="CloseB_MouseUp" Grid.Column="2" Height="Auto" Width="Auto">
+                    <Label Name="CloseLB"/>
+                </Border>
+
+                <Border x:Name="HideB"  Style="{DynamicResource BorderHideButton}"
+                    MouseEnter="HideB_MouseEnter"
+                    MouseDown="HideB_MouseDown"
+                    MouseUp="HideB_MouseUp"  Grid.Column="1" >
+                    <Label/>
+                </Border>
+            </Grid>
+
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="127"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Image Grid.Row="1" Source="/StudentDepartmentsGonA.D;component/ResourceFolder/ImageFolder/Logo.png" />
+
+                <TextBox x:Name="LogintTB" Grid.Row="2"
+                         materialDesign:HintAssist.Hint="Логин" Style="{DynamicResource AuthorizationTextBox}"
+                         SelectionBrush="Black" TextChanged="LogintTB_TextChanged"/>
+
+                <PasswordBox x:Name="PasswordPB" Grid.Row="3"               
+                    materialDesign:HintAssist.Hint="Пароль" SelectionBrush="Black"
+                             PasswordChanged="PasswordPB_PasswordChanged"/>
+
+                <Button x:Name="LoginBT"
+                        Content="Вход" Grid.Row="4"
+                        IsEnabled="False"
+                        Click="LoginBT_Click"
+                        materialDesign:ButtonAssist.CornerRadius="15" Width="210"  />
+
+            </Grid>
+
+        </Grid>
+    </Border>
+</Window>

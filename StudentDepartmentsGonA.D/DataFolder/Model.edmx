@@ -1,0 +1,921 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище DBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Adress">
+          <Key>
+            <PropertyRef Name="AdressID" />
+          </Key>
+          <Property Name="AdressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IndexAdress" Type="int" Nullable="false" />
+          <Property Name="RegionID" Type="int" Nullable="false" />
+          <Property Name="CityID" Type="int" Nullable="false" />
+          <Property Name="StreetID" Type="int" Nullable="false" />
+          <Property Name="House" Type="int" Nullable="false" />
+          <Property Name="Building" Type="int" />
+          <Property Name="Appartament" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameCity" Type="nvarchar" MaxLength="80" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Curator">
+          <Key>
+            <PropertyRef Name="CuratorID" />
+          </Key>
+          <Property Name="CuratorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="30" />
+          <Property Name="PhoneNum" Type="nvarchar" MaxLength="17" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="30" />
+          <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="SpecialityID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="GroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameGroup" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="CuratorID" Type="int" />
+          <Property Name="SpecialityID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PlaceIssueOfPassport">
+          <Key>
+            <PropertyRef Name="PlaceIssueOfPassportID" />
+          </Key>
+          <Property Name="PlaceIssueOfPassportID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmentСode" Type="nvarchar" MaxLength="30" />
+          <Property Name="NamePlace" Type="nvarchar" MaxLength="70" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="RegionID" />
+          </Key>
+          <Property Name="RegionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameRegion" Type="nvarchar" MaxLength="80" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameRole" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Speciality">
+          <Key>
+            <PropertyRef Name="SpecialityID" />
+          </Key>
+          <Property Name="SpecialityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SpecialityCode" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="NameSpeciality" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="TermOFTraining" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameStatus" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Street">
+          <Key>
+            <PropertyRef Name="StreetID" />
+          </Key>
+          <Property Name="StreetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameStreet" Type="nvarchar" MaxLength="80" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="30" />
+          <Property Name="PhoneNum" Type="nvarchar" MaxLength="17" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="PassportSeries" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="PassportNum" Type="int" Nullable="false" />
+          <Property Name="PlaceIssueOfPassportID" Type="int" Nullable="false" />
+          <Property Name="INN" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="SNILS" Type="nvarchar" MaxLength="14" Nullable="false" />
+          <Property Name="OMS" Type="nvarchar" MaxLength="19" Nullable="false" />
+          <Property Name="PlaceOfBirthID" Type="int" Nullable="false" />
+          <Property Name="PlaceOfRegistrationID" Type="int" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="ReceiptDate" Type="date" Nullable="false" />
+          <Property Name="ReleaseDate" Type="date" />
+          <Property Name="GroupID" Type="int" />
+          <Property Name="StatusID" Type="int" Nullable="false" />
+          <Property Name="OrderStudent" Type="nvarchar" MaxLength="30" />
+          <Property Name="Image" Type="image" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "StudentDepartment.dbo.ViewAdress" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="ViewAdress">
+          <Key>
+            <PropertyRef Name="AdressID" />
+            <PropertyRef Name="IndexAdress" />
+            <PropertyRef Name="NameRegion" />
+            <PropertyRef Name="NameCity" />
+            <PropertyRef Name="House" />
+            <PropertyRef Name="Appartament" />
+          </Key>
+          <Property Name="AdressID" Type="int" Nullable="false" />
+          <Property Name="IndexAdress" Type="int" Nullable="false" />
+          <Property Name="NameRegion" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="NameCity" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="NameStreet" Type="nvarchar" MaxLength="80" />
+          <Property Name="House" Type="int" Nullable="false" />
+          <Property Name="Building" Type="int" />
+          <Property Name="Appartament" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Adress_City">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Adress">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Adress_Region">
+          <End Role="Region" Type="Self.Region" Multiplicity="1" />
+          <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="RegionID" />
+            </Principal>
+            <Dependent Role="Adress">
+              <PropertyRef Name="RegionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Adress_Street">
+          <End Role="Street" Type="Self.Street" Multiplicity="1" />
+          <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Street">
+              <PropertyRef Name="StreetID" />
+            </Principal>
+            <Dependent Role="Adress">
+              <PropertyRef Name="StreetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Curator_Speciality">
+          <End Role="Speciality" Type="Self.Speciality" Multiplicity="1" />
+          <End Role="Curator" Type="Self.Curator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speciality">
+              <PropertyRef Name="SpecialityID" />
+            </Principal>
+            <Dependent Role="Curator">
+              <PropertyRef Name="SpecialityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group_Curator">
+          <End Role="Curator" Type="Self.Curator" Multiplicity="0..1" />
+          <End Role="Group" Type="Self.Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curator">
+              <PropertyRef Name="CuratorID" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="CuratorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group_Speciality">
+          <End Role="Speciality" Type="Self.Speciality" Multiplicity="1" />
+          <End Role="Group" Type="Self.Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speciality">
+              <PropertyRef Name="SpecialityID" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="SpecialityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Adress">
+          <End Role="Adress" Type="Self.Adress" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adress">
+              <PropertyRef Name="AdressID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="PlaceOfRegistrationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_City">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="PlaceOfBirthID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Group">
+          <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="GroupID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_PlaceIssueOfPassport">
+          <End Role="PlaceIssueOfPassport" Type="Self.PlaceIssueOfPassport" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlaceIssueOfPassport">
+              <PropertyRef Name="PlaceIssueOfPassportID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="PlaceIssueOfPassportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="StatusID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище DBModelContainer">
+          <EntitySet Name="Adress" EntityType="Self.Adress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Curator" EntityType="Self.Curator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PlaceIssueOfPassport" EntityType="Self.PlaceIssueOfPassport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Speciality" EntityType="Self.Speciality" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Street" EntityType="Self.Street" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ViewAdress" EntityType="Self.ViewAdress" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewAdress].[AdressID] AS [AdressID], 
+    [ViewAdress].[IndexAdress] AS [IndexAdress], 
+    [ViewAdress].[NameRegion] AS [NameRegion], 
+    [ViewAdress].[NameCity] AS [NameCity], 
+    [ViewAdress].[NameStreet] AS [NameStreet], 
+    [ViewAdress].[House] AS [House], 
+    [ViewAdress].[Building] AS [Building], 
+    [ViewAdress].[Appartament] AS [Appartament]
+    FROM [dbo].[ViewAdress] AS [ViewAdress]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Adress_City" Association="Self.FK_Adress_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Adress" EntitySet="Adress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Adress_Region" Association="Self.FK_Adress_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="Adress" EntitySet="Adress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Adress_Street" Association="Self.FK_Adress_Street">
+            <End Role="Street" EntitySet="Street" />
+            <End Role="Adress" EntitySet="Adress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Curator_Speciality" Association="Self.FK_Curator_Speciality">
+            <End Role="Speciality" EntitySet="Speciality" />
+            <End Role="Curator" EntitySet="Curator" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_Curator" Association="Self.FK_Group_Curator">
+            <End Role="Curator" EntitySet="Curator" />
+            <End Role="Group" EntitySet="Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_Speciality" Association="Self.FK_Group_Speciality">
+            <End Role="Speciality" EntitySet="Speciality" />
+            <End Role="Group" EntitySet="Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Adress" Association="Self.FK_Student_Adress">
+            <End Role="Adress" EntitySet="Adress" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_City" Association="Self.FK_Student_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Group" Association="Self.FK_Student_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_PlaceIssueOfPassport" Association="Self.FK_Student_PlaceIssueOfPassport">
+            <End Role="PlaceIssueOfPassport" EntitySet="PlaceIssueOfPassport" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Status" Association="Self.FK_Student_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Adress">
+          <Key>
+            <PropertyRef Name="AdressID" />
+          </Key>
+          <Property Name="AdressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IndexAdress" Type="Int32" Nullable="false" />
+          <Property Name="RegionID" Type="Int32" Nullable="false" />
+          <Property Name="CityID" Type="Int32" Nullable="false" />
+          <Property Name="StreetID" Type="Int32" Nullable="false" />
+          <Property Name="House" Type="Int32" Nullable="false" />
+          <Property Name="Building" Type="Int32" />
+          <Property Name="Appartament" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="City" Relationship="Self.FK_Adress_City" FromRole="Adress" ToRole="City" />
+          <NavigationProperty Name="Region" Relationship="Self.FK_Adress_Region" FromRole="Adress" ToRole="Region" />
+          <NavigationProperty Name="Street" Relationship="Self.FK_Adress_Street" FromRole="Adress" ToRole="Street" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Student_Adress" FromRole="Adress" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameCity" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Adress" Relationship="Self.FK_Adress_City" FromRole="City" ToRole="Adress" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Student_City" FromRole="City" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Curator">
+          <Key>
+            <PropertyRef Name="CuratorID" />
+          </Key>
+          <Property Name="CuratorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNum" Type="String" MaxLength="17" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="SpecialityID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Speciality" Relationship="Self.FK_Curator_Speciality" FromRole="Curator" ToRole="Speciality" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_Group_Curator" FromRole="Curator" ToRole="Group" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="GroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameGroup" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CuratorID" Type="Int32" />
+          <Property Name="SpecialityID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Curator" Relationship="Self.FK_Group_Curator" FromRole="Group" ToRole="Curator" />
+          <NavigationProperty Name="Speciality" Relationship="Self.FK_Group_Speciality" FromRole="Group" ToRole="Speciality" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Student_Group" FromRole="Group" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="PlaceIssueOfPassport">
+          <Key>
+            <PropertyRef Name="PlaceIssueOfPassportID" />
+          </Key>
+          <Property Name="PlaceIssueOfPassportID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentСode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="NamePlace" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Student_PlaceIssueOfPassport" FromRole="PlaceIssueOfPassport" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="RegionID" />
+          </Key>
+          <Property Name="RegionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameRegion" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Adress" Relationship="Self.FK_Adress_Region" FromRole="Region" ToRole="Adress" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameRole" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Speciality">
+          <Key>
+            <PropertyRef Name="SpecialityID" />
+          </Key>
+          <Property Name="SpecialityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SpecialityCode" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NameSpeciality" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TermOFTraining" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Curator" Relationship="Self.FK_Curator_Speciality" FromRole="Speciality" ToRole="Curator" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_Group_Speciality" FromRole="Speciality" ToRole="Group" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="StatusID" />
+          </Key>
+          <Property Name="StatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameStatus" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Student_Status" FromRole="Status" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Street">
+          <Key>
+            <PropertyRef Name="StreetID" />
+          </Key>
+          <Property Name="StreetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameStreet" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Adress" Relationship="Self.FK_Adress_Street" FromRole="Street" ToRole="Adress" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNum" Type="String" MaxLength="17" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PassportSeries" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PassportNum" Type="Int32" Nullable="false" />
+          <Property Name="PlaceIssueOfPassportID" Type="Int32" Nullable="false" />
+          <Property Name="INN" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SNILS" Type="String" MaxLength="14" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OMS" Type="String" MaxLength="19" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PlaceOfBirthID" Type="Int32" Nullable="false" />
+          <Property Name="PlaceOfRegistrationID" Type="Int32" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="ReceiptDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ReleaseDate" Type="DateTime" Precision="0" />
+          <Property Name="GroupID" Type="Int32" />
+          <Property Name="StatusID" Type="Int32" Nullable="false" />
+          <Property Name="OrderStudent" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Adress" Relationship="Self.FK_Student_Adress" FromRole="Student" ToRole="Adress" />
+          <NavigationProperty Name="City" Relationship="Self.FK_Student_City" FromRole="Student" ToRole="City" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_Student_Group" FromRole="Student" ToRole="Group" />
+          <NavigationProperty Name="PlaceIssueOfPassport" Relationship="Self.FK_Student_PlaceIssueOfPassport" FromRole="Student" ToRole="PlaceIssueOfPassport" />
+          <NavigationProperty Name="Status" Relationship="Self.FK_Student_Status" FromRole="Student" ToRole="Status" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="ViewAdress">
+          <Key>
+            <PropertyRef Name="AdressID" />
+            <PropertyRef Name="IndexAdress" />
+            <PropertyRef Name="NameRegion" />
+            <PropertyRef Name="NameCity" />
+            <PropertyRef Name="House" />
+            <PropertyRef Name="Appartament" />
+          </Key>
+          <Property Name="AdressID" Type="Int32" Nullable="false" />
+          <Property Name="IndexAdress" Type="Int32" Nullable="false" />
+          <Property Name="NameRegion" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NameCity" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NameStreet" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="House" Type="Int32" Nullable="false" />
+          <Property Name="Building" Type="Int32" />
+          <Property Name="Appartament" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Adress_City">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Adress">
+              <PropertyRef Name="CityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Adress_Region">
+          <End Role="Region" Type="Self.Region" Multiplicity="1" />
+          <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="RegionID" />
+            </Principal>
+            <Dependent Role="Adress">
+              <PropertyRef Name="RegionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Adress_Street">
+          <End Role="Street" Type="Self.Street" Multiplicity="1" />
+          <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Street">
+              <PropertyRef Name="StreetID" />
+            </Principal>
+            <Dependent Role="Adress">
+              <PropertyRef Name="StreetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Adress">
+          <End Role="Adress" Type="Self.Adress" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adress">
+              <PropertyRef Name="AdressID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="PlaceOfRegistrationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_City">
+          <End Role="City" Type="Self.City" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="PlaceOfBirthID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Curator_Speciality">
+          <End Role="Speciality" Type="Self.Speciality" Multiplicity="1" />
+          <End Role="Curator" Type="Self.Curator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speciality">
+              <PropertyRef Name="SpecialityID" />
+            </Principal>
+            <Dependent Role="Curator">
+              <PropertyRef Name="SpecialityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group_Curator">
+          <End Role="Curator" Type="Self.Curator" Multiplicity="0..1" />
+          <End Role="Group" Type="Self.Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curator">
+              <PropertyRef Name="CuratorID" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="CuratorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group_Speciality">
+          <End Role="Speciality" Type="Self.Speciality" Multiplicity="1" />
+          <End Role="Group" Type="Self.Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speciality">
+              <PropertyRef Name="SpecialityID" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="SpecialityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Group">
+          <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="GroupID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="GroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_PlaceIssueOfPassport">
+          <End Role="PlaceIssueOfPassport" Type="Self.PlaceIssueOfPassport" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlaceIssueOfPassport">
+              <PropertyRef Name="PlaceIssueOfPassportID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="PlaceIssueOfPassportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="StatusID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="StatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Adress" EntityType="Self.Adress" />
+          <EntitySet Name="City" EntityType="Self.City" />
+          <EntitySet Name="Curator" EntityType="Self.Curator" />
+          <EntitySet Name="Group" EntityType="Self.Group" />
+          <EntitySet Name="PlaceIssueOfPassport" EntityType="Self.PlaceIssueOfPassport" />
+          <EntitySet Name="Region" EntityType="Self.Region" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="Speciality" EntityType="Self.Speciality" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
+          <EntitySet Name="Street" EntityType="Self.Street" />
+          <EntitySet Name="Student" EntityType="Self.Student" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="ViewAdress" EntityType="Self.ViewAdress" />
+          <AssociationSet Name="FK_Adress_City" Association="Self.FK_Adress_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Adress" EntitySet="Adress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Adress_Region" Association="Self.FK_Adress_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="Adress" EntitySet="Adress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Adress_Street" Association="Self.FK_Adress_Street">
+            <End Role="Street" EntitySet="Street" />
+            <End Role="Adress" EntitySet="Adress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Adress" Association="Self.FK_Student_Adress">
+            <End Role="Adress" EntitySet="Adress" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_City" Association="Self.FK_Student_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Curator_Speciality" Association="Self.FK_Curator_Speciality">
+            <End Role="Speciality" EntitySet="Speciality" />
+            <End Role="Curator" EntitySet="Curator" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_Curator" Association="Self.FK_Group_Curator">
+            <End Role="Curator" EntitySet="Curator" />
+            <End Role="Group" EntitySet="Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_Speciality" Association="Self.FK_Group_Speciality">
+            <End Role="Speciality" EntitySet="Speciality" />
+            <End Role="Group" EntitySet="Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Group" Association="Self.FK_Student_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_PlaceIssueOfPassport" Association="Self.FK_Student_PlaceIssueOfPassport">
+            <End Role="PlaceIssueOfPassport" EntitySet="PlaceIssueOfPassport" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Status" Association="Self.FK_Student_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище DBModelContainer" CdmEntityContainer="DBEntities">
+          <EntitySetMapping Name="Adress">
+            <EntityTypeMapping TypeName="DBModel.Adress">
+              <MappingFragment StoreEntitySet="Adress">
+                <ScalarProperty Name="AdressID" ColumnName="AdressID" />
+                <ScalarProperty Name="IndexAdress" ColumnName="IndexAdress" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="StreetID" ColumnName="StreetID" />
+                <ScalarProperty Name="House" ColumnName="House" />
+                <ScalarProperty Name="Building" ColumnName="Building" />
+                <ScalarProperty Name="Appartament" ColumnName="Appartament" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="City">
+            <EntityTypeMapping TypeName="DBModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+                <ScalarProperty Name="NameCity" ColumnName="NameCity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Curator">
+            <EntityTypeMapping TypeName="DBModel.Curator">
+              <MappingFragment StoreEntitySet="Curator">
+                <ScalarProperty Name="CuratorID" ColumnName="CuratorID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="PhoneNum" ColumnName="PhoneNum" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="SpecialityID" ColumnName="SpecialityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Group">
+            <EntityTypeMapping TypeName="DBModel.Group">
+              <MappingFragment StoreEntitySet="Group">
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="NameGroup" ColumnName="NameGroup" />
+                <ScalarProperty Name="CuratorID" ColumnName="CuratorID" />
+                <ScalarProperty Name="SpecialityID" ColumnName="SpecialityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlaceIssueOfPassport">
+            <EntityTypeMapping TypeName="DBModel.PlaceIssueOfPassport">
+              <MappingFragment StoreEntitySet="PlaceIssueOfPassport">
+                <ScalarProperty Name="PlaceIssueOfPassportID" ColumnName="PlaceIssueOfPassportID" />
+                <ScalarProperty Name="DepartmentСode" ColumnName="DepartmentСode" />
+                <ScalarProperty Name="NamePlace" ColumnName="NamePlace" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Region">
+            <EntityTypeMapping TypeName="DBModel.Region">
+              <MappingFragment StoreEntitySet="Region">
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="NameRegion" ColumnName="NameRegion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="DBModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="NameRole" ColumnName="NameRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Speciality">
+            <EntityTypeMapping TypeName="DBModel.Speciality">
+              <MappingFragment StoreEntitySet="Speciality">
+                <ScalarProperty Name="SpecialityID" ColumnName="SpecialityID" />
+                <ScalarProperty Name="SpecialityCode" ColumnName="SpecialityCode" />
+                <ScalarProperty Name="NameSpeciality" ColumnName="NameSpeciality" />
+                <ScalarProperty Name="TermOFTraining" ColumnName="TermOFTraining" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="DBModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="NameStatus" ColumnName="NameStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Street">
+            <EntityTypeMapping TypeName="DBModel.Street">
+              <MappingFragment StoreEntitySet="Street">
+                <ScalarProperty Name="StreetID" ColumnName="StreetID" />
+                <ScalarProperty Name="NameStreet" ColumnName="NameStreet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student">
+            <EntityTypeMapping TypeName="DBModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="PhoneNum" ColumnName="PhoneNum" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PassportSeries" ColumnName="PassportSeries" />
+                <ScalarProperty Name="PassportNum" ColumnName="PassportNum" />
+                <ScalarProperty Name="PlaceIssueOfPassportID" ColumnName="PlaceIssueOfPassportID" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="SNILS" ColumnName="SNILS" />
+                <ScalarProperty Name="OMS" ColumnName="OMS" />
+                <ScalarProperty Name="PlaceOfBirthID" ColumnName="PlaceOfBirthID" />
+                <ScalarProperty Name="PlaceOfRegistrationID" ColumnName="PlaceOfRegistrationID" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="ReceiptDate" ColumnName="ReceiptDate" />
+                <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="OrderStudent" ColumnName="OrderStudent" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="DBModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewAdress">
+            <EntityTypeMapping TypeName="DBModel.ViewAdress">
+              <MappingFragment StoreEntitySet="ViewAdress">
+                <ScalarProperty Name="AdressID" ColumnName="AdressID" />
+                <ScalarProperty Name="IndexAdress" ColumnName="IndexAdress" />
+                <ScalarProperty Name="NameRegion" ColumnName="NameRegion" />
+                <ScalarProperty Name="NameCity" ColumnName="NameCity" />
+                <ScalarProperty Name="NameStreet" ColumnName="NameStreet" />
+                <ScalarProperty Name="House" ColumnName="House" />
+                <ScalarProperty Name="Building" ColumnName="Building" />
+                <ScalarProperty Name="Appartament" ColumnName="Appartament" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

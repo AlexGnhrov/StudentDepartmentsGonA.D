@@ -1,0 +1,250 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+
+
+    <SolidColorBrush Color="#2451A8" x:Key="BorderColorMain"/>
+    <SolidColorBrush Color="#F47F2A" x:Key="BorderAccentMain"/>
+    <SolidColorBrush Color="#4095BA" x:Key="BorderAccentAdditional"/>
+
+    <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#4095BA"/>
+
+
+    <Style TargetType="Border" x:Key="BorderImagePlace">
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderAccentMain}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="CornerRadius" Value="15"/>
+        <Setter Property="Width" Value="128"/>
+        <Setter Property="Height" Value="128"/>
+    </Style>
+
+    <Style TargetType="Border" x:Key="BorderExitButton">
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="CornerRadius" Value="0,14,0,0"/>
+        <Setter Property="Width" Value="35"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Margin" Value="1"/>
+        <Style.Resources>
+            <Style TargetType="Label">
+                <Setter Property="Content" Value="❌"/>
+                <Setter Property="Foreground" Value="Black"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+            </Style>
+        </Style.Resources>
+    </Style>
+
+    <Style TargetType="Border" x:Key="BorderResizeButton" BasedOn="{StaticResource BorderExitButton}">
+        <Setter Property="CornerRadius" Value="0"/>
+        <Style.Resources>
+            <Style TargetType="Label">
+                <Setter Property="Content" Value="⬜"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+            </Style>
+        </Style.Resources>
+    </Style>
+
+    <Style TargetType="Border" x:Key="BorderHideButton" BasedOn="{StaticResource BorderExitButton}">
+        <Setter Property="CornerRadius" Value="0"/>
+        <Style.Resources>
+            <Style TargetType="Label">
+                <Setter Property="Content" Value="━"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+            </Style>
+        </Style.Resources>
+    </Style>
+
+
+
+    <Style TargetType="Label" x:Key="LabelMain">
+        <Setter Property="FontSize" Value="26"/>
+        <Setter Property="FontFamily" Value="Kadwa"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="Kadwa"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="LabelNameWin"
+           BasedOn="{StaticResource LabelMain}">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="FontFamily" Value="Kadwa"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Margin" Value="10,0"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="LabelInfo">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Kadwa"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Right"/>
+        <Setter Property="FontFamily" Value="Kadwa"/>
+    </Style>
+
+
+    <Style TargetType="{x:Type TextBox}" x:Key="AuthorizationTextBox"
+           BasedOn="{StaticResource MaterialDesignTextBox}">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Kadwa"/>
+        <Setter Property="BorderBrush"  Value="{DynamicResource BorderAccentMain}"/>
+        <Setter Property="CaretBrush" Value="Black"/>
+        <Setter Property="SelectionBrush" Value="Black"/>
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="Margin" Value="30,20,30,10"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
+
+    <Style TargetType="{x:Type TextBox}"
+           BasedOn="{StaticResource MaterialDesignOutlinedTextBox}" >
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Kadwa"/>
+        <Setter Property="BorderBrush"  Value="{DynamicResource BorderAccentMain}"/>
+        <Setter Property="CaretBrush" Value="Black"/>
+        <Setter Property="SelectionBrush" Value="Black"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Margin" Value="20,10"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
+
+
+    <Style TargetType="{x:Type PasswordBox}"
+           BasedOn="{StaticResource MaterialDesignPasswordBox}">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Kadwa"/>
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderAccentMain}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="30,20,30,10"/>
+    </Style>
+
+    <Style TargetType="{x:Type Button}"
+           BasedOn="{StaticResource MaterialDesignRaisedButton}">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Kadwa"/>
+        <Setter Property="Background" Value="{DynamicResource BorderAccentMain}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Margin" Value="20,10"/>
+    </Style>
+
+    <Style TargetType="{x:Type ComboBox}"
+           BasedOn="{StaticResource MaterialDesignOutlinedComboBox}" >
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Kadwa"/>
+        <Setter Property="BorderBrush"  Value="{DynamicResource BorderAccentMain}"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="MaxDropDownHeight" Value="150"/>
+        <Setter Property="Margin" Value="20,10"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
+
+    <Style TargetType="{x:Type ListBox}"
+           BasedOn="{StaticResource MaterialDesignOutlineListBox}" >
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Kadwa"/>
+        <Setter Property="BorderBrush"  Value="{DynamicResource BorderAccentMain}"/>
+        <Setter Property="Margin" Value="20,10"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="ButtonText">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Kadwa"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="5,3"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="ListViewText">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Kadwa"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="TextInfoStudent">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Kadwa"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="7"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
+
+    <Style TargetType="DatePicker"
+           BasedOn="{StaticResource MaterialDesignFloatingHintDatePicker}">
+        <Setter Property="BorderBrush"  Value="{DynamicResource BorderAccentMain}"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Margin" Value="20,10"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
+
+    <Style TargetType="GridViewColumnHeader">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Kadwa"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
+
+    <Style TargetType="ListView">
+        <Setter Property="Background" Value="#EFEFEF"/>
+        <Setter Property="BorderBrush"  Value="{DynamicResource BorderAccentAdditional}"/>
+        <Style.Resources>
+            <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="15"/>
+            </Style>
+        </Style.Resources>
+    </Style>
+
+    <Style TargetType="Menu">
+        <Setter Property="FontFamily" Value="Kadwa"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Margin" Value="1"/>
+    </Style>
+
+    <Style TargetType="MenuItem">
+        <Setter Property="FontFamily" Value="Kadwa"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Height" Value="10"/>
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="Margin" Value="4"/>
+    </Style>
+
+    
+    <Style TargetType="ListViewItem">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Style.Resources>
+            <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="15"/>
+            </Style>
+        </Style.Resources>
+    </Style>
+    
+</ResourceDictionary>

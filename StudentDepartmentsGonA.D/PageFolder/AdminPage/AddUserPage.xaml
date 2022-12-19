@@ -1,0 +1,62 @@
+﻿<Page x:Class="StudentDepartmentsGonA.D.PageFolder.AdminPage.AddUserPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:StudentDepartmentsGonA.D.PageFolder.AdminPage"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="950"
+      Title="Добавление пользователя" PreviewKeyDown="Page_PreviewKeyDown">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition />
+            <RowDefinition Height="90"/>
+        </Grid.RowDefinitions>
+
+
+        <TextBox x:Name="LoginTB"
+                 Grid.Column="1"  Grid.Row="1"
+                 materialDesign:HintAssist.Hint="Логин"
+                 BorderBrush="{StaticResource BorderAccentMain}"
+                  TextChanged="LoginTB_TextChanged" />
+        <TextBox x:Name="PasswordTB"
+                 Grid.Column="1"  Grid.Row="3"
+                 materialDesign:HintAssist.Hint="Пароль"
+                 BorderBrush="{StaticResource BorderAccentMain}"
+                 TextChanged="PasswordTB_TextChanged" />
+        <ComboBox x:Name="RoleCB" Grid.Column="1" Grid.Row="5"
+                  materialDesign:HintAssist.Hint="Роль"
+                  SelectedValuePath="RoleID"
+                  SelectedItem="{Binding Role}"
+                  DisplayMemberPath="NameRole" SelectionChanged="RoleCB_SelectionChanged"/>
+
+        <Button x:Name="AddUserBT"
+                Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="2"  IsEnabled="False"
+                materialDesign:ButtonAssist.CornerRadius="15" Margin="450,20,20,20" Click="AddUserBT_Click" >
+            <StackPanel Orientation="Horizontal" >
+                <Image Source="/StudentDepartmentsGonA.D;component/ResourceFolder/ImageFolder/Cross.png" Height="31" Width="31"/>
+                <TextBlock Text="Добавить пользователя" Style="{DynamicResource ButtonText}" />
+            </StackPanel>
+        </Button>
+        <Button x:Name="BackBT" Grid.Row="7"  
+                materialDesign:ButtonAssist.CornerRadius="15" Click="BackBT_Click" >
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/StudentDepartmentsGonA.D;component/ResourceFolder/ImageFolder/Arrow.png" Height="31" Width="31"/>
+                <TextBlock Text="Назад" Style="{DynamicResource ButtonText}"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Page>

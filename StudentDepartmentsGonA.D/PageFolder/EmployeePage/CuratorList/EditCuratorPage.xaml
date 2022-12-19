@@ -1,0 +1,111 @@
+﻿<Page x:Class="StudentDepartmentsGonA.D.PageFolder.EmployeePage.CuratorList.EditCuratorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:StudentDepartmentsGonA.D.PageFolder.EmployeePage.CuratorList"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="950"
+      Title="Редактирование куратора" KeyDown="Page_KeyDown">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+            <RowDefinition Height="90"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="60" />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="2" Grid.ColumnSpan="2" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+        </Grid>
+
+        <Border BorderBrush="Orange" Style="{DynamicResource BorderImagePlace}"
+                MouseEnter="Border_MouseEnter" MouseLeftButtonDown="Border_MouseLeftButtonDown" Grid.Column="1" >
+            <Border.Background>
+                <ImageBrush x:Name="PhotoIB" Stretch="Fill" ImageSource="/StudentDepartmentsGonA.D;component/ResourceFolder/ImageFolder/photoplaceholder.jpg" />
+            </Border.Background>
+        </Border>
+
+
+        <TextBox x:Name="PhoneNumTB"
+                 Grid.Row="2" Grid.Column="1"
+                 BorderBrush="{StaticResource BorderAccentMain}"
+
+                 materialDesign:HintAssist.Hint="Номер телефона*"
+                 Text="{Binding PhoneNum}"
+                 TextChanged="PhoneNum_TextChanged" PreviewTextInput="PhoneNumTB_PreviewTextInput" MaxLength="16" Height="Auto" />
+        <TextBox x:Name="EmailTB"
+                 Grid.Row="3" Grid.Column="1"
+                 BorderBrush="{StaticResource BorderAccentMain}"
+                
+                 Text="{Binding Email}"
+            materialDesign:HintAssist.Hint="Почта*" TextChanged="EmailTB_TextChanged"    />
+
+        <ComboBox x:Name="SpecialityCB" Grid.Row="4" Grid.Column="1" 
+            materialDesign:HintAssist.Hint="Специальность*" 
+                  SelectedValuePath="SpecialityID"
+                  SelectedItem="{Binding Speciality}"
+                  DisplayMemberPath="NameSpeciality" SelectionChanged="SpecialityCB_SelectionChanged" MouseDoubleClick="SpecialityCB_MouseDoubleClick"  />
+
+        <TextBox x:Name="SNPCuratorTB" 
+                 BorderBrush="{StaticResource BorderAccentMain}"           
+                materialDesign:HintAssist.Hint="ФИО Куратора*"  Grid.Row="1"  Grid.Column="1" Height="Auto" TextChanged="SNPCuratorTB_TextChanged">
+            <TextBox.Text>
+                <MultiBinding StringFormat="{}{0} {1} {2}">
+                    <Binding Path="Surname"/>
+                    <Binding Path="Name"/>
+                    <Binding Path="Patronymic"/>
+                </MultiBinding>
+            </TextBox.Text>
+        </TextBox>
+
+        <Button Grid.Row="6" x:Name="EditCuratorBT"
+            materialDesign:ButtonAssist.CornerRadius="15" 
+                IsEnabled="False"
+             Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Right"  Click="EditCuratorBT_Click"  >
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/StudentDepartmentsGonA.D;component/ResourceFolder/ImageFolder/Cross.png" Height="40" Width="40"/>
+                <TextBlock Text="Редактировать куратора" Style="{DynamicResource ButtonText}"/>
+            </StackPanel>
+        </Button>
+
+        <Button Grid.Row="6" x:Name="BackBT"
+                    materialDesign:ButtonAssist.CornerRadius="15" 
+                     HorizontalAlignment="Left" Width="150" Height="Auto" Margin="20,20,0,20" Click="BackBT_Click">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/StudentDepartmentsGonA.D;component/ResourceFolder/ImageFolder/Arrow.png" Height="38" Width="40"/>
+                <TextBlock Text="Назад" Style="{DynamicResource ButtonText}"/>
+            </StackPanel>
+        </Button>
+        <Button FontSize="32" Grid.Row="4" x:Name="AddSpecialityBT"
+            materialDesign:ButtonAssist.CornerRadius="15" 
+            Grid.Column="2"  Margin="0,10,10,10" Click="AddSpecialityBT_Click"  >
+            <Image Source="/StudentDepartmentsGonA.D;component/ResourceFolder/ImageFolder/Cross.png" />
+        </Button>
+        <Grid Grid.Column="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Button Grid.Row="6" x:Name="DeleteBT" Content="Удалить" Background="{DynamicResource BorderAccentAdditional}"
+            materialDesign:ButtonAssist.CornerRadius="15" 
+            Grid.Column="1" HorizontalAlignment="Right"  Margin="0,20" Width="176" Click="DeleteBT_Click" >
+
+        </Button>
+    </Grid>
+</Page>

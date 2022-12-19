@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6CB5FE0B-B8FF-4250-ABEC-BB91BACBEB58}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>StudentDepartmentsGonA.D</RootNamespace>
+    <AssemblyName>StudentDepartmentsGonA.D</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=2.0.9.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.2.0.9\lib\net462\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=4.6.1.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.4.6.1\lib\net462\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ClassFolder\LoadAndReadImage.cs" />
+    <Compile Include="ClassFolder\VariableClass.cs" />
+    <Compile Include="ClassFolder\MBClass.cs" />
+    <Compile Include="DataFolder\Adress.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataFolder\City.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataFolder\ContextClass.cs" />
+    <Compile Include="DataFolder\Curator.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataFolder\Group.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataFolder\Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataFolder\Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataFolder\Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataFolder\PlaceIssueOfPassport.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataFolder\Region.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataFolder\Role.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataFolder\Speciality.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataFolder\Status.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataFolder\Street.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataFolder\Student.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataFolder\User.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataFolder\ViewAdress.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\AdminPage\AddUserPage.xaml.cs">
+      <DependentUpon>AddUserPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\AdminPage\EditUserPage.xaml.cs">
+      <DependentUpon>EditUserPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\AdminPage\ListUserPage.xaml.cs">
+      <DependentUpon>ListUserPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePage\StudentList\AdressPage\AddAdressPage.xaml.cs">
+      <DependentUpon>AddAdressPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePage\CuratorList\AddCuratorPage.xaml.cs">
+      <DependentUpon>AddCuratorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePage\CuratorList\EditCuratorPage.xaml.cs">
+      <DependentUpon>EditCuratorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePage\CuratorList\ListCuratorPage.xaml.cs">
+      <DependentUpon>ListCuratorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePage\StudentList\AddStudentPage.xaml.cs">
+      <DependentUpon>AddStudentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePage\StudentList\AdressPage\EditAdressPage.xaml.cs">
+      <DependentUpon>EditAdressPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePage\StudentList\EditStudentPage.xaml.cs">
+      <DependentUpon>EditStudentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\EmployeePage\StudentList\ListStudentPage.xaml.cs">
+      <DependentUpon>ListStudentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\AdminFolder\AdministrationWindow.xaml.cs">
+      <DependentUpon>AdministrationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\AuthorizationWindow.xaml.cs">
+      <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WindowFolder\EmployeeFolder\AdditionalWIndows\AdressWindow\CityWindow\AddCityWindow.xaml.cs">
+      <DependentUpon>AddCityWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\EmployeeFolder\AdditionalWIndows\AdressWindow\CityWindow\EditCityWindow.xaml.cs">
+      <DependentUpon>EditCityWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\EmployeeFolder\AdditionalWIndows\AdressWindow\RegionWinow\AddRegionWindow.xaml.cs">
+      <DependentUpon>AddRegionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\EmployeeFolder\AdditionalWIndows\AdressWindow\RegionWinow\EditRegionWindow.xaml.cs">
+      <DependentUpon>EditRegionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\EmployeeFolder\AdditionalWIndows\AdressWindow\StreetWindow\EditStreetWindow.xaml.cs">
+      <DependentUpon>EditStreetWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\EmployeeFolder\AdditionalWIndows\GroupWindow\AddGroupWindow.xaml.cs">
+      <DependentUpon>AddGroupWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\EmployeeFolder\AdditionalWIndows\GroupWindow\EditGroupWindow.xaml.cs">
+      <DependentUpon>EditGroupWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\EmployeeFolder\AdditionalWIndows\PlaceOfIssuePassportWIndow\AddPlaceOfIssuePassportWindow.xaml.cs">
+      <DependentUpon>AddPlaceOfIssuePassportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\EmployeeFolder\AdditionalWIndows\PlaceOfIssuePassportWIndow\EditPlaceOfIssuePassportWindow.xaml.cs">
+      <DependentUpon>EditPlaceOfIssuePassportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\EmployeeFolder\StudentInfoWindow.xaml.cs">
+      <DependentUpon>StudentInfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\SpecialityWindow\AddSpecialityWindow.xaml.cs">
+      <DependentUpon>AddSpecialityWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\SpecialityWindow\EditSpecialityWindow.xaml.cs">
+      <DependentUpon>EditSpecialityWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\EmployeeFolder\AdditionalWIndows\StatusWIndow\AddStatusWindow.xaml.cs">
+      <DependentUpon>AddStatusWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\EmployeeFolder\AdditionalWIndows\StatusWIndow\EditStatusWIndow.xaml.cs">
+      <DependentUpon>EditStatusWIndow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\EmployeeFolder\AdditionalWIndows\AdressWindow\StreetWindow\AddStreetWindow.xaml.cs">
+      <DependentUpon>AddStreetWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowFolder\EmployeeFolder\EmployeeWindow.xaml.cs">
+      <DependentUpon>EmployeeWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="PageFolder\AdminPage\AddUserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\AdminPage\EditUserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\AdminPage\ListUserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePage\StudentList\AdressPage\AddAdressPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePage\CuratorList\AddCuratorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePage\CuratorList\EditCuratorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePage\CuratorList\ListCuratorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePage\StudentList\AddStudentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePage\StudentList\AdressPage\EditAdressPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePage\StudentList\EditStudentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\EmployeePage\StudentList\ListStudentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourceFolder\Dictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\AdminFolder\AdministrationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\AuthorizationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\EmployeeFolder\AdditionalWIndows\AdressWindow\CityWindow\AddCityWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WindowFolder\EmployeeFolder\AdditionalWIndows\AdressWindow\CityWindow\EditCityWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\EmployeeFolder\AdditionalWIndows\AdressWindow\RegionWinow\AddRegionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\EmployeeFolder\AdditionalWIndows\AdressWindow\RegionWinow\EditRegionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\EmployeeFolder\AdditionalWIndows\AdressWindow\StreetWindow\EditStreetWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\EmployeeFolder\AdditionalWIndows\GroupWindow\AddGroupWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\EmployeeFolder\AdditionalWIndows\GroupWindow\EditGroupWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\EmployeeFolder\AdditionalWIndows\PlaceOfIssuePassportWIndow\AddPlaceOfIssuePassportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\EmployeeFolder\AdditionalWIndows\PlaceOfIssuePassportWIndow\EditPlaceOfIssuePassportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\EmployeeFolder\StudentInfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\SpecialityWindow\AddSpecialityWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\SpecialityWindow\EditSpecialityWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\EmployeeFolder\AdditionalWIndows\StatusWIndow\AddStatusWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\EmployeeFolder\AdditionalWIndows\StatusWIndow\EditStatusWIndow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\EmployeeFolder\AdditionalWIndows\AdressWindow\StreetWindow\AddStreetWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowFolder\EmployeeFolder\EmployeeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="DataFolder\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DataFolder\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ResourceFolder\ImageFolder\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ResourceFolder\ImageFolder\Hide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ResourceFolder\ImageFolder\Snowflake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ResourceFolder\ImageFolder\Elka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ResourceFolder\ImageFolder\photoplaceholder.jpg" />
+    <Resource Include="ResourceFolder\ImageFolder\List.png" />
+    <Resource Include="ResourceFolder\ImageFolder\Arrow.png" />
+    <Resource Include="ResourceFolder\ImageFolder\Cross.png" />
+    <Resource Include="ResourceFolder\ImageFolder\Exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataFolder\Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataFolder\Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MaterialDesignThemes.4.6.1\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.6.1\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.4.6.1\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.4.6.1\build\MaterialDesignThemes.targets'))" />
+  </Target>
+</Project>

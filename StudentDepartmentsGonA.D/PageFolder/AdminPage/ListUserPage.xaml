@@ -1,0 +1,95 @@
+﻿<Page x:Class="StudentDepartmentsGonA.D.PageFolder.AdminPage.ListUserPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:StudentDepartmentsGonA.D.PageFolder.AdminPage"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="950"
+      Title="Список пользователей">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="290"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <TextBox Name="SearchTB"
+                 materialDesign:HintAssist.Hint="Поиск"
+                 materialDesign:HintAssist.Foreground="Black"
+                 BorderBrush="{StaticResource BorderAccentMain}"
+                 Height="Auto" TextChanged="TextBox_TextChanged"/>
+        <Button Grid.Column="1" Name="AddStudentBT"
+                    materialDesign:ButtonAssist.CornerRadius="15" 
+                    Click="AddStudentBT_Click" Height="Auto" Margin="10,10,20,10" >
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/StudentDepartmentsGonA.D;component/ResourceFolder/ImageFolder/Cross.png" Height="35" Width="35"/>
+                <TextBlock Text="Добавить пользователя" Style="{DynamicResource ButtonText}"/>
+            </StackPanel>
+        </Button>
+
+        <ListView x:Name="ListUserLB"
+                 Grid.Row="1" Grid.ColumnSpan="2"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 Margin="20" MouseDoubleClick="ListUserLB_MouseDoubleClick" 
+                  >
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Редактировать" Click="EditUserMI_Click"/>
+                    <Separator/>
+                    <MenuItem Header="Удалить" Click="DeleteMi_Click"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="291">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+
+                        <TextBlock Text="Логин" 
+                                   FontWeight="Bold"
+                                   Style="{DynamicResource ListViewText}"/>
+                        <TextBlock Text="{Binding Login}" 
+                                    Grid.Column="1"
+                                   Style="{DynamicResource ListViewText}"/>
+
+                        <TextBlock Text="Пароль" 
+                                   FontWeight="Bold"
+                                   Grid.Row="1"
+                                   Style="{DynamicResource ListViewText}"/>
+                        <TextBlock Text="{Binding Password}" 
+                                   Grid.Row="1" Grid.Column="1" 
+                                   Style="{DynamicResource ListViewText}"/>
+
+                        <TextBlock Text="Роль" 
+                                   FontWeight="Bold"
+                                   Grid.Row="2"
+                                   Style="{DynamicResource ListViewText}"/>
+                        <TextBlock Text="{Binding Role.NameRole}" 
+                                   Grid.Column="1" Grid.Row="2"
+                                   Style="{DynamicResource ListViewText}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
+    </Grid>
+</Page>
